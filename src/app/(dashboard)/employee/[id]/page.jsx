@@ -1,6 +1,7 @@
 
 import React from 'react'
-import EmployeeDetail from '../../../component/EmployeeDetail'
+
+import TabsUI from '@/app/component/TabsUI'
 
 async function employeeDetail(id) {
   
@@ -16,7 +17,8 @@ export default async function DashboardPage({ params }) {
   console.log('Details in Page:', details)
   return (
     <div>
-      <EmployeeDetail user={details} />
+     
+      <TabsUI  user={details} ></TabsUI>
     </div>
   )
 }

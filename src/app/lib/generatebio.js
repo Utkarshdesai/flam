@@ -1,3 +1,3 @@
 export function mockbio() {
-    return 'I am employee this company working here from last 10+ years. i loves building products'
-  }
+  return 'Experienced professional with a passion for excellence and a proven track record in delivering results across diverse projects and teams.'
+}

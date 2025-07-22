@@ -1,27 +1,29 @@
 'use client'
-import React from 'react'
+import React, { useState } from 'react'
 import Starrating from './Starrating'
 import { getRandomRating } from '../lib/Rating'
 import { mockbio } from '../lib/generatebio'
 
-// Generate mock performance history (array of ratings)
-function generateMockPerformanceHistory(months = 6) {
-  return Array.from({ length: months }, () => getRandomRating())
-}
 
-// Generate a mock bio
-function generateMockBio() {
-  return 'Experienced professional with a passion for excellence and a proven track record in delivering results across diverse projects and teams.'
-}
+
 
 const EmployeeDetail = ({user}) => {
+
+  
+
   const rating = user?.rating || getRandomRating()
   const performanceHistory = user?.performanceHistory || generateMockPerformanceHistory()
-  const bio = user?.bio || generateMockBio()
+  
+
+  function generateMockPerformanceHistory(months = 6) {
+    return Array.from({ length: months }, () => getRandomRating())
+  }
 
   return (
     <div>
-       <div className="max-w-2xl mx-auto p-6 space-y-6">
+      <div className="max-w-2xl mx-auto p-6 space-y-6">
+      
+     
       {/* Header */}
       <div className="border-b pb-4">
         <h1 className="text-3xl font-bold">{user.firstName}</h1>
