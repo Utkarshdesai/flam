@@ -1,6 +1,7 @@
 import React from 'react';
 import Starrating from './Starrating';
 import { getRandomRating } from '../lib/Rating';
+import Link from 'next/link';
 
 const EmployeeCard = ({ user }) => {
     const rating = getRandomRating()
@@ -28,9 +29,12 @@ const EmployeeCard = ({ user }) => {
 
       {/* Action Buttons */}
       <div className="flex gap-2 mt-4">
-        <button className="flex-1 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors text-sm">
+        <Link href={`/employee/${user.id}`}> 
+        <button className="flex-1 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors text-sm"
+         >
           View
         </button>
+        </Link>
         <button className="flex-1 px-3 py-1 border rounded hover:bg-gray-100 transition-colors text-sm">
           Bookmark
         </button>

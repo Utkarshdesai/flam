@@ -1,0 +1,88 @@
+'use client'
+import React from 'react'
+import Starrating from './Starrating'
+import { getRandomRating } from '../lib/Rating'
+import { mockbio } from '../lib/generatebio'
+
+// Generate mock performance history (array of ratings)
+function generateMockPerformanceHistory(months = 6) {
+  return Array.from({ length: months }, () => getRandomRating())
+}
+
+// Generate a mock bio
+function generateMockBio() {
+  return 'Experienced professional with a passion for excellence and a proven track record in delivering results across diverse projects and teams.'
+}
+
+const EmployeeDetail = ({user}) => {
+  const rating = user?.rating || getRandomRating()
+  const performanceHistory = user?.performanceHistory || generateMockPerformanceHistory()
+  const bio = user?.bio || generateMockBio()
+
+  return (
+    <div>
+       <div className="max-w-2xl mx-auto p-6 space-y-6">
+      {/* Header */}
+      <div className="border-b pb-4">
+        <h1 className="text-3xl font-bold">{user.firstName}</h1>
+      </div>
+
+      {/* Contact Info */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="bg-gray-50 p-4 rounded-lg">
+          <h2 className="font-medium text-gray-500 mb-1">Address</h2>
+          <p>{`${user.address.address} , ${user.address.city} , ${user.address.state} ,${user.address.country}`}</p>
+        </div>
+        <div className="bg-gray-50 p-4 rounded-lg">
+          <h2 className="font-medium text-gray-500 mb-1">Phone</h2>
+          <p>{user.phone.slice(3,)}</p>
+        </div>
+      </div>
+
+      {/* Bio */}
+      <div className="bg-gray-50 p-4 rounded-lg">
+        <h2 className="font-medium text-gray-500 mb-2">Bio</h2>
+        <p className="text-gray-700">{mockbio()}</p>
+      </div>
+
+      {/* Performance */}
+      <div className="bg-gray-50 p-4 rounded-lg">
+        <div className="flex items-center gap-2 mb-4">
+          <Starrating rating={rating} />
+          <span className={`px-2 py-1 text-xs font-medium rounded-full ${
+            rating >= 4.5 ? 'bg-green-100 text-green-800' :
+            rating <= 2 ? 'bg-red-100 text-red-800' :
+            'bg-blue-100 text-blue-800'
+          }`}>
+            {rating}/5 Rating
+          </span>
+        </div>
+
+        <h2 className="font-medium text-gray-500 mb-2">Recent Performance</h2>
+        <div className="space-y-3">
+          {performanceHistory.map((rating, index) => (
+            <div key={index} className="flex items-center">
+              <span className="w-32 text-gray-600">Month {index + 1}</span>
+              <div className="flex-1 flex items-center">
+                <div className="w-full bg-gray-200 rounded-full h-2.5">
+                  <div 
+                    className={`h-2.5 rounded-full ${
+                      rating >= 4 ? 'bg-green-500' :
+                      rating <= 2 ? 'bg-red-500' :
+                      'bg-yellow-500'
+                    }`}
+                    style={{ width: `${rating * 20}%` }}
+                  ></div>
+                </div>
+                <span className="ml-2 text-sm w-8">{rating}/5</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+    </div>
+  )
+}
+
+export default EmployeeDetail
