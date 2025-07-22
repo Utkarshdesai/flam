@@ -1,8 +1,9 @@
 import React from 'react';
 import Starrating from './Starrating';
+import { getRandomRating } from '../lib/Rating';
 
 const EmployeeCard = ({ user }) => {
-    const rating = Math.floor(Math.random() * 5) + 1;
+    const rating = getRandomRating()
   return (
     <div className="flex flex-col justify-between p-4 rounded-xl shadow-lg hover:shadow-gray-800 hover:scale-105 transition-transform duration-300 ease-in-out bg-white">
       
