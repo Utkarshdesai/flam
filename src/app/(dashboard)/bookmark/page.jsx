@@ -14,10 +14,10 @@ export default function EmployeeBookmarkList() {
   console.log(bookmarkemployee)
 
   return (
-    <div className="space-y-4 ml-4 mt-4 mb-5">
-      <h2 className="text-xl font-bold">Bookmarked Employees</h2>
+    <div className="mx-4 mt-8 mb-8">
+      <h2 className="text-2xl font-bold text-center text-indigo-700 mb-6 tracking-tight">Bookmarked Employees</h2>
       {bookmarkemployee.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mx-4 lg:mx-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {bookmarkemployee.map((employee) => (
             <div
               key={employee.id}
@@ -32,7 +32,6 @@ export default function EmployeeBookmarkList() {
                 </div>
               </div>
               <div className="flex gap-2 mt-2">
-               
                 <button
                   onClick={() => assignToProject(employee.id)}
                   className="flex-1 px-3 py-1 bg-green-500 text-white rounded hover:bg-green-600 transition-colors text-sm"
@@ -50,7 +49,9 @@ export default function EmployeeBookmarkList() {
           ))}
         </div>
       ) : (
-        <p>No bookmarked employees yet.</p>
+        <div className="flex flex-col items-center justify-center py-">
+          <p className="text-lg text-gray-400 font-semibold">No bookmarked employees yet.</p>
+        </div>
       )}
     </div>
   );
