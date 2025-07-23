@@ -1,4 +1,4 @@
-'use client'
+"use client"
 import { Bar, Line } from 'react-chartjs-2';
 import { Chart, registerables } from 'chart.js';
 Chart.register(...registerables);
