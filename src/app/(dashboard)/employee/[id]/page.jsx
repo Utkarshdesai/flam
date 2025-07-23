@@ -17,8 +17,7 @@ export default async function DashboardPage({ params }) {
   console.log('Details in Page:', details)
   return (
     <div>
-     
-      <TabsUI  user={details} ></TabsUI>
+      <TabsUI user={details} ></TabsUI>
     </div>
   )
 }
