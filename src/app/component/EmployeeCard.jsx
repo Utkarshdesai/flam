@@ -2,6 +2,8 @@ import React from 'react';
 import Starrating from './Starrating';
 import { getRandomRating } from '../lib/Rating';
 import Link from 'next/link';
+import Promotebutton from './Promotebutton';
+import Bookmarkbtn from './Bookmarkbtn';
 
 const EmployeeCard = ({ user }) => {
     const rating = getRandomRating()
@@ -35,12 +37,12 @@ const EmployeeCard = ({ user }) => {
           View
         </button>
         </Link>
-        <button className="flex-1 px-3 py-1 border rounded hover:bg-gray-100 transition-colors text-sm">
-          Bookmark
-        </button>
-        <button className="flex-1 px-3 py-1 bg-green-500 text-white rounded hover:bg-green-600 transition-colors text-sm">
-          Promote
-        </button>
+
+        <Bookmarkbtn user={user}/>
+
+        <Promotebutton/>
+
+
       </div>
     </div>
   );
