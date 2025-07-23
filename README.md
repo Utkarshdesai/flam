@@ -24,13 +24,13 @@
 4. **Open in browser:**
    Visit [http://localhost:3000](http://localhost:3000)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
 
 ## Features Implemented
 
 - Employee list with search and department filter
-- Employee detail view with tabs overview 
-- Bookmark employees (with prevention of duplicates)
+- Employee detail view with tabs overview project and feedback
+- Bookmark employees page
 - View and manage bookmarked employees (promote, assign to project, remove)
 - Analytics dashboard with charts (department ratings, bookmark trends)
 - Responsive card layouts for employees and bookmarks
